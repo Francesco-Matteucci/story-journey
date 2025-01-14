@@ -16,13 +16,15 @@ class Chapter extends Model
         'next_chapter_id',
     ];
 
-    // Se vuoi la relazione con next chapter:
     public function nextChapter()
     {
         return $this->belongsTo(Chapter::class, 'next_chapter_id');
     }
 
-    // Se hai una tabella choices:
+    /**
+     * Relazione con le choices
+     * Un capitolo può avere molte scelte
+     */
     public function choices()
     {
         return $this->hasMany(Choice::class);
